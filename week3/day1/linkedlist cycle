@@ -1,0 +1,16 @@
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        //start a slow and fast pointr
+        ListNode slowPtr = head;
+          ListNode fastPtr = head;
+          while(slowPtr != null && fastPtr !=null && fastPtr.next !=null){
+            //advance both the pointers
+            slowPtr = slowPtr.next;
+            fastPtr = fastPtr.next.next;
+            if(slowPtr==fastPtr){
+                return true;
+            }
+          }
+        return false;
+    }
+}
