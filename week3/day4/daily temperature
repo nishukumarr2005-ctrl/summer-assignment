@@ -1,0 +1,19 @@
+class Solution {
+    public int[] dailyTemperatures(int[] temperature) {
+        Stack<Integer> admin = new Stack<>();
+        int n = temperature.length;
+        int[] result = new int[n];
+
+    
+    for(int idx = n-1;idx>=0;idx--){
+        while(!admin.isEmpty() && temperature[idx]>=temperature[admin.peek()]){
+            admin.pop();
+        }
+        if(!admin.isEmpty()){
+            result[idx]=admin.peek()-idx;
+        }
+        admin.push(idx);
+    }
+    return result;
+    }
+}
